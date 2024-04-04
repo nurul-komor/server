@@ -43,7 +43,7 @@ class SiteController extends Controller
      */
     public function store(StoreSiteRequest $request)
     {
-        //
+        $this->hostingRepository->store($request);
     }
 
     /**

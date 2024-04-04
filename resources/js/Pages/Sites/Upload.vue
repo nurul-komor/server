@@ -34,10 +34,8 @@ import FilePondPluginImagePreview from "filepond-plugin-image-preview";
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-
-
-                        <div class="relative overflow-x-auto">
-                            <file-pond name="test" ref="pond" label-idle="Drop files here..."
+                        <div class="relative overflow-x-auto cursor-pointer">
+                            <file-pond name="zipFile" ref="pond" label-idle="Drop files zip file here..."
                                 server="http://localhost:8000/api/upload-site" v-bind:files="myFiles"
                                 v-on:init="handleFilePondInit" />
                         </div>
@@ -61,11 +59,13 @@ export default {
     name: "app",
     props: ['sites'],
     data: function () {
-        return { myFiles: [] };
+        return { myFiles: null };
     },
     methods: {
         handleFilePondInit: function () {
-
+            // console.log(this.$refs.pond.getFiles());
+            // this.myFiles = this.$refs.pond.getFiles();
+            // console.log(this.myFiles);
         },
 
     },

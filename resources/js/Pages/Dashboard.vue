@@ -37,17 +37,19 @@ import { Head } from '@inertiajs/vue3';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+                                        v-for="(site, index) in sites" :key="index">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             #
                                         </th>
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            Apple MacBook Pro 17"
+                                            {{ site?.site_name }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            Silver
+                                            <a href="{{ site?.url }}" class="text-blue-500 hover:underline">Visit</a>
+                                            {{ site?.site_url }}
                                         </td>
 
                                     </tr>
