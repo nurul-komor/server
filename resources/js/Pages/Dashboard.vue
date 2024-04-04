@@ -38,7 +38,7 @@ import { Head } from '@inertiajs/vue3';
                                 </thead>
                                 <tbody>
                                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
-                                        v-for="(site, index) in sites" :key="index">
+                                        v-for="(site, index) in  sites " :key="index">
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                             #
@@ -48,8 +48,8 @@ import { Head } from '@inertiajs/vue3';
                                             {{ site?.site_name }}
                                         </th>
                                         <td class="px-6 py-4">
-                                            <a href="{{ site?.url }}" class="text-blue-500 hover:underline">Visit</a>
-                                            {{ site?.site_url }}
+                                            <a v-if="site" :href="site.site_url"
+                                                class="text-blue-500 hover:underline">Visit</a>
                                         </td>
 
                                     </tr>

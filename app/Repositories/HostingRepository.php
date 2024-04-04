@@ -22,18 +22,18 @@ class HostingRepository implements HostingInterface
     }
     public function store(Request $request)
     {
-        info(Auth::id());
-        //Create Site Name
-        $site_name = "site-" . Site::latest()->first()->id;
+
+        // Create Site Name
+        $site_name = "site-"  . time();
         $site_url =   $this->extractAnUpload($request->file('zipFile'), $site_name);
         if ($site_url) {
             $site = $this->model->create([
                 "site_name" => $site_name,
-                "site_url" => $site_url,
-                "user_id" => auth()->user()->id,
+                "site_url" =>   '/hostings/' . $site_name,
+                "user_id" => 1,
             ]);
-            return "Successfully Upload";
         }
+        return "Successfully Upload";
     }
     public function update($id, $data)
     {
@@ -74,7 +74,7 @@ class HostingRepository implements HostingInterface
                             echo "Failed to move file $file to public directory<br>";
                         }
                     } else {
-                        // echo "File $file already exists in public directory<br>";
+                        echo "File $file already exists in public directory<br>";
                     }
                 }
             }
